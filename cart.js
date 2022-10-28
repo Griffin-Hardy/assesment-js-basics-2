@@ -35,9 +35,11 @@ const cart = [
 
 //CODE HERE
 
-const summedPrice = cart.reduce((acc, curr) => acc + curr.price)
-console.log(summedPrice)
+const summedPrice = cart.reduce((acc, curr) => {
+    return acc + curr.price
+}, 0)
 
+console.log(summedPrice)
 //////////////////PROBLEM 2////////////////////
 /*  
     Write a function called `calcFinalPrice` that
@@ -55,8 +57,14 @@ console.log(summedPrice)
 
 //CODE HERE
 
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    const totalBeforeCoupon = cartTotal * (1 + tax)
+    const finalPrice = totalBeforeCoupon - couponValue
 
+    return finalPrice
+}
 
+console.log(calcFinalPrice(summedPrice, 5, .06))
 //////////////////PROBLEM 3////////////////////
 /*  
     In this problem, you'll create a model for 
@@ -78,7 +86,7 @@ console.log(summedPrice)
 */
 
 /*
-    TEXT ANSWER HERE
+    The customer object should have 4 properties, customer name because we need to know who we're delivering to, customer address so we know where to deliver, order info so we know what they ordered, and time orderd so we know how lond we took to order. customer name should be a string, customer adress should be a string, order info should be an array of strings,  and order time should be a number  
 
 */
 
@@ -88,3 +96,12 @@ console.log(summedPrice)
 */
 
 //CODE HERE
+const newOrder = {
+    customerName: "Peter",
+    customerAddress: "123 blue monday ln",
+    orderInfo: ['hawaiian slice', 'pepsi', 'bread sticks'],
+    orderTime: 0930
+
+}
+
+

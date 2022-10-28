@@ -73,8 +73,7 @@ console.log(pizza.tags[1])
 */
 
 //CODE HERE
-let {price} = pizza 
-{price = 2.50}  
+let {price} = pizza  
 console.log({price})
 /*
     Fourth, and last, destructure the category
@@ -160,17 +159,8 @@ let foodArr = [
 
 //CODE HERE
 
-const filteredFood = foodArr.filter((arr,cb) => {
-    for (let i = 0; i < foodArr.length; i++){
-        if (foodArr[i] === arr){
-            console.log(foodArr[i])
-        }
-    }
-    cb(arr)
-})
-
-console.log(foodArr.filter(cb('sweet')))
-
+const filteredFood = foodArr.filter((food) => food.tags.includes('sweet'))
+console.log(filteredFood)
 
 
 //////////////////PROBLEM 5////////////////////
@@ -213,6 +203,16 @@ console.log(foodArr.filter(cb('sweet')))
 */
 
 //CODE HERE
+const filterByProperty = (property, number, type) =>{
+    const foodFilter = foodArr.filter((food) =>{
+        if(type === 'above'){
+            return food[property] > number
+        }else{
+            return food[property] < number
+        }
+    })
+    return foodFilter
+}
 
 
 /*
@@ -223,3 +223,6 @@ console.log(foodArr.filter(cb('sweet')))
 */
 
 //CODE HERE
+
+console.log(filterByProperty('popularity', 65, 'above'))
+console.log(filterByProperty('rating', 8, 'below'))
